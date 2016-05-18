@@ -1,1 +1,2 @@
-source ./modules/virsh.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/modules/virsh.sh
