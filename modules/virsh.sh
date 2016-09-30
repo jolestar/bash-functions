@@ -8,7 +8,8 @@ virt-addr() {
     address=$(arp -an | grep "$search" | awk '{ gsub(/[\(\)]/,"",$2); print $2 }')
 
     if [[ -z "$address" ]]; then
-        echo "-"
+        sleep 1
+        virt-addr $VM
     else
         echo "$address"
     fi
