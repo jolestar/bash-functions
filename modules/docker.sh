@@ -11,3 +11,11 @@ function docker-rm-all () {
         docker rm $i;
     done
 }
+
+function docker-clean-img (){
+    docker rmi $(docker images -q -f dangling=true)
+}
+
+function docker-clean-volume (){
+    docker volume rm $(docker volume ls --filter dangling=true -q)
+}
